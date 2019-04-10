@@ -41,10 +41,9 @@
   cursor: pointer;
 }
 .menu {
-  display: none;
   position: fixed;
   top: 75px;
-  left: 0;
+  left: -350px;
   width: 350px;
   height: 100vh;
   /* This give the height 100% of the screen or, '100% of View Height' */
@@ -62,7 +61,52 @@
   text-align: center;
 }
 .menu--open {
-  display: block;
+  left: 0;
+  animation: menuOpen 2s;
+}
+@keyframes menuOpen {
+  0% {
+    left: -350px;
+  }
+  100% {
+    left: 0;
+  }
+}
+.menu--close {
+  left: -350px;
+  animation: menuClose 2s;
+}
+@keyframes menuClose {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: -350px;
+  }
+}
+.articlesOpacityIn {
+  opacity: 0.25;
+  animation: opacityIn 2s;
+}
+@keyframes opacityIn {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.25;
+  }
+}
+.articlesOpacityOut {
+  opacity: 1;
+  animation: opacityOut 2s;
+}
+@keyframes opacityOut {
+  0% {
+    opacity: 0.25;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 .articles {
   margin-top: 95px;
@@ -76,6 +120,7 @@
   position: relative;
   height: 50px;
   overflow: hidden;
+  transition: height 2s;
   box-shadow: 2px 2px 2px lightgrey;
 }
 .article h2 {
@@ -91,6 +136,7 @@
   position: absolute;
   top: 10px;
   right: 10px;
+  transition: height 2s;
 }
 .article .expandButton {
   position: absolute;
@@ -103,7 +149,8 @@
   background-color: white;
 }
 .article-open {
-  height: 400px;
+  height: 415px;
+  transition: height 2s;
 }
 html,
 body {
